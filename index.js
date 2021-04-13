@@ -23,10 +23,6 @@ const provider = new common.SimpleAuthenticationDetailsProvider(
     region
 );
 
-process.on('SIGINT', () => {
-    process.exit();
-});
-
 (async () => {
     try {
         const computeClient = new core.ComputeClient({
@@ -66,11 +62,11 @@ process.on('SIGINT', () => {
         const listPrivateIpsRequest = {
             vnicId: vnicId
         };
-        
+
         // Get the ID of the second private IP of the previously fetched vnic.
         const listPrivateIpsResponse = await vNetclient.listPrivateIps(listPrivateIpsRequest);
         const privateIpID = listPrivateIpsResponse.items.filter(item => item.isPrimary == false)[0].id;
-        
+
         // Attach the public static IP address to the corresponding private IP ID.
         const updatePublicIpDetails = {
             privateIpId: privateIpID
@@ -86,6 +82,9 @@ process.on('SIGINT', () => {
     }
 
     if (process.env.INFINITE_WAIT) {
-        while(true);
+        process.on('SIGINT', () => {
+            process.exit();
+        });
+        while (true);
     }
 })();
