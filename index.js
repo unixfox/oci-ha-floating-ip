@@ -8,7 +8,7 @@ const tenancy = process.env.OCI_TENANCY;
 const user = process.env.OCI_USER;
 const fingerprint = process.env.OCI_FINGERPRINT;
 const privateKey = process.env.OCI_PRIVATE_KEY;
-const region = process.env.OCI_REGION;
+const region = common.Region[process.env.OCI_REGION];
 
 // Specific parameters for knowning to what instance the static public IP address needs to be attach to.
 const publicStaticIpAddress = process.env.PUBLIC_STATIC_IP;
