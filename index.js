@@ -8,7 +8,7 @@ const tenancy = process.env.OCI_TENANCY;
 const user = process.env.OCI_USER;
 const fingerprint = process.env.OCI_FINGERPRINT;
 const privateKey = process.env.OCI_PRIVATE_KEY;
-const region = common.Region[process.env.OCI_REGION];
+const region = common.Region[process.env.OCI_REGION.toUpperCase()];
 
 // Specific parameters for knowning to what instance the static public IP address needs to be attach to.
 const publicStaticIpAddress = process.env.OCI_PUBLIC_STATIC_IP;
@@ -22,6 +22,10 @@ const provider = new common.SimpleAuthenticationDetailsProvider(
     undefined,
     region
 );
+
+process.on('SIGINT', () => {
+    process.exit();
+});
 
 (async () => {
     try {
@@ -79,5 +83,9 @@ const provider = new common.SimpleAuthenticationDetailsProvider(
     } catch (error) {
         console.log("Got an error:");
         console.log(error);
+    }
+
+    if (process.env.INFINITE_WAIT) {
+        while(true);
     }
 })();
