@@ -82,7 +82,7 @@ const provider = new common.SimpleAuthenticationDetailsProvider(
     }
 
     if (process.env.INFINITE_WAIT) {
-        process.on('SIGINT', () => {
+        process.on('SIGTERM', () => {
             process.exit();
         });
         while (true);
