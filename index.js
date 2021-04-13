@@ -76,6 +76,7 @@ const provider = new common.SimpleAuthenticationDetailsProvider(
             updatePublicIpDetails: updatePublicIpDetails,
         };
         await vNetclient.updatePublicIp(updatePublicIpRequest);
+        console.log("Successfully attached the public IP address " + publicStaticIpAddress + " to the instance name: " + instanceName);
     } catch (error) {
         console.log("Got an error:");
         console.log(error);
