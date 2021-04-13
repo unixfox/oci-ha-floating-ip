@@ -62,9 +62,9 @@ spec:
                 key:  OCI_PRIVATE_KEY
                 name: "{{ .Release.Name }}-secrets"
           - name: OCI_REGION
-            value: "{{ .Values.oci.region }}"
+            value: "{{ .Values.config.region }}"
           - name: OCI_PUBLIC_STATIC_IP
-            value: "{{ .Values.oci.publicStaticIp }}"
+            value: "{{ .Values.config.publicStaticIp }}"
           - name: OCI_INSTANCE_NAME
             valueFrom:
               fieldRef:

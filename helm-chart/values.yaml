@@ -1,4 +1,4 @@
-oci:
+config:
   tenancy: ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   user: ocid1.user.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   fingerprint: 8c:bf:17:7b:5f:e0:7d:13:75:11:d6:39:0d:e2:84:74
@@ -15,11 +15,11 @@ tolerations:
   - key: "node.kubernetes.io/unreachable"
     operator: "Exists"
     effect: "NoExecute"
-    tolerationSeconds: 30
+    tolerationSeconds: 5
   - key: "node.kubernetes.io/not-ready"
     operator: "Exists"
     effect: "NoExecute"
-    tolerationSeconds: 30
+    tolerationSeconds: 5
 resources: {}
 # limits:
 #   cpu: 10m
