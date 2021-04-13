@@ -79,6 +79,6 @@ const provider = new common.SimpleAuthenticationDetailsProvider(
         console.log("Successfully attached the public IP address " + publicStaticIpAddress + " to the instance name: " + instanceName);
     } catch (error) {
         console.log("Got an error:");
-        console.log(error);
+        throw(error);
     }
 })();
