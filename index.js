@@ -81,11 +81,4 @@ const provider = new common.SimpleAuthenticationDetailsProvider(
         console.log("Got an error:");
         console.log(error);
     }
-
-    if (process.env.INFINITE_WAIT) {
-        process.on('SIGTERM', () => {
-            process.exit();
-        });
-        while (true);
-    }
 })();

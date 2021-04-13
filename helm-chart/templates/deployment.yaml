@@ -27,7 +27,7 @@ spec:
     {{- if .Values.tolerations }}
       tolerations: {{ toYaml .Values.tolerations | nindent 8 }}
     {{- end }}
-      containers:
+      initContainers:
       - name: "oci-ha-floating-ip"
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
@@ -69,5 +69,13 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: spec.nodeName
-          - name: INFINITE_WAIT
-            value: "true"
+      containers:
+      - name: pause
+        image: gcr.io/google_containers/pause
+        resources:
+          limits:
+            cpu: 50m
+            memory: 50Mi
+          requests:
+            cpu: 50m
+            memory: 50Mi
