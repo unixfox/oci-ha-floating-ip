@@ -11,8 +11,8 @@ const privateKey = process.env.OCI_PRIVATE_KEY;
 const region = common.Region[process.env.OCI_REGION];
 
 // Specific parameters for knowning to what instance the static public IP address needs to be attach to.
-const publicStaticIpAddress = process.env.PUBLIC_STATIC_IP;
-const instanceName = process.env.INSTANCE_NAME;
+const publicStaticIpAddress = process.env.OCI_PUBLIC_STATIC_IP;
+const instanceName = process.env.OCI_INSTANCE_NAME;
 
 const provider = new common.SimpleAuthenticationDetailsProvider(
     tenancy,
