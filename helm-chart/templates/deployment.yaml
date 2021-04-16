@@ -63,8 +63,16 @@ spec:
                 name: "{{ .Release.Name }}-secrets"
           - name: OCI_REGION
             value: "{{ .Values.config.region }}"
-          - name: OCI_PUBLIC_STATIC_IP
-            value: "{{ .Values.config.publicStaticIp }}"
+          - name: OCI_SUBNET
+            value: "{{ .Values.config.subnet }}"
+          {{- if .Values.config.publicIpv4Address }}
+          - name: OCI_PUBLIC_IPV4_ADDRESS
+            value: "{{ .Values.config.publicIpv4Address }}"
+          {{- end }}
+          {{- if .Values.config.publicIpv6Address }}
+          - name: OCI_PUBLIC_IPV6_ADDRESS
+            value: "{{ .Values.config.publicIpv6Address }}"
+          {{- end }}
           - name: OCI_INSTANCE_NAME
             valueFrom:
               fieldRef:

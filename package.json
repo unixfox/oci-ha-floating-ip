@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "oci-sdk": "^1.18.1"
+    "oci-sdk": "^1.19.0"
   },
   "scripts": {
     "start": "node index.js",
