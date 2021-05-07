@@ -108,5 +108,6 @@ const provider = new common.SimpleAuthenticationDetailsProvider(
     } catch (error) {
         console.log("Got an error:");
         throw (error);
+        process.exit(1);
     }
 })();
