@@ -8,4 +8,4 @@ RUN addgroup -g 10001 -S nonroot && adduser -u 10000 -S -G nonroot -h /app nonro
 USER nonroot
 WORKDIR /app
 COPY --from=0 /app .
-CMD [ "node", "index.js" ]
+CMD [ "node", "index.js", "--unhandled-rejections=strict" ]
