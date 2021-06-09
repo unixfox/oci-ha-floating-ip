@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:12
+FROM docker-registry-proxy.herokuapp.com/mhart/alpine-node:12
 WORKDIR /app
 COPY package.json package-lock.json ./
 COPY index.js ./
