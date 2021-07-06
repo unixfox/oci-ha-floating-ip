@@ -3,7 +3,7 @@
     "oci-sdk": "^1.19.0"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js --unhandled-rejections=strict",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "index.js"
